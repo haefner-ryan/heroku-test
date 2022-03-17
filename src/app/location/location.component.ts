@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit {
+  number: number = 0;
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class LocationComponent implements OnInit {
 
   onClick() {
     console.log('log')
+    this.number++;
   }
 
 }
