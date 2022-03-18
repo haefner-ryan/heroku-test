@@ -6,11 +6,13 @@ import { LocationComponent } from './location/location.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
+import { CameraHardwareComponent } from './camera-hardware/camera-hardware.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationComponent
+    LocationComponent,
+    CameraHardwareComponent
   ],
   imports: [
     BrowserModule,
