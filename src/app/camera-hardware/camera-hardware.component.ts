@@ -3,7 +3,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 @Component({
   selector: 'app-camera-hardware',
   templateUrl: './camera-hardware.component.html',
-  styleUrls: ['./camera-hardware.component.scss']
+  styleUrls: ['./camera-hardware.component.css']
 })
 export class CameraHardwareComponent implements OnInit, AfterViewInit {
   @ViewChild('video1') videoRef!: ElementRef;
