@@ -25,12 +25,27 @@ export class LocationComponent implements OnInit {
       console.log(res);
       this.updatedLat = res.coords.latitude;
       this.updatedLong = res.coords.longitude;
+      this.onChangeLocationStyle();
     })
   }
 
   onClick() {
     console.log('log')
     this.number++;
+  }
+
+  onChangeLocation() {
+    console.log('test')
+    this.updatedLat++;
+    this.updatedLong++;
+    this.onChangeLocationStyle();
+  }
+
+  onChangeLocationStyle() {
+    document.getElementById('updated-location')?.classList.add('changed-location');
+    setTimeout(() => {
+      document.getElementById('updated-location')?.classList.remove('changed-location')
+    }, 1000)
   }
 
 }

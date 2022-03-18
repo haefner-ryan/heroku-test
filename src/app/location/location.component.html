@@ -1,11 +1,14 @@
 <div>
     <p>location works!</p>
-    <button class="btn" (click)="onClick()">LOG</button>
+    <button class="btn" (click)="onClick()">+</button>
     <p>{{ number }}</p>
     <hr>
     <h3>Latitude: {{ lat }}</h3>
     <h3>Longitude: {{ long }}</h3>
     <hr>
-    <h3>Updated Latitude: {{ updatedLat }}</h3>
-    <h3>Updated Longitude: {{ updatedLong }}</h3>
+    <div id="updated-location">
+        <h3>Updated Latitude: {{ updatedLat }}</h3>
+        <h3>Updated Longitude: {{ updatedLong }}</h3>
+    </div>
+    <!-- <button (click)="onChangeLocation()">CHANGE LOCATION</button> -->
 </div>
