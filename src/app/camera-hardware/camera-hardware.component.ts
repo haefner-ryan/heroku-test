@@ -35,7 +35,8 @@ export class CameraHardwareComponent implements OnInit, AfterViewInit {
           this.videoCapable = true;
           const that = this;
           this.video.srcObject = this.mediaStream;
-          this.video.play().then(() => {
+          this.video.play().then((value: any) => {
+            console.log(value)
             that.canvas.width = that.video.videoWidth;
             that.canvas.height = that.video.videoHeight;
           });
