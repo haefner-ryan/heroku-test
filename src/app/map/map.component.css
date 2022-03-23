@@ -3,4 +3,9 @@ iframe {
     width: 80vw;
     border: 2px solid black;
     margin: 20px;
+    margin-top: 0px;
+}
+
+p {
+    margin: 0px;
 }

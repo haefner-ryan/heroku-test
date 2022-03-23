@@ -16,6 +16,7 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    
     this.subscription = this.dataService.dataChanged
       .subscribe((dataArray) => {
         this.dataArray = dataArray
@@ -25,6 +26,8 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   async ngAfterViewInit() {
     this.dataArray = await this.dataService.getData();
     console.log(this.dataArray)
+    // Initializes 'data' in localforage for new users
+    if(this.dataArray === null) { localforage.setItem('data', []) } 
   }
 
   onShowTable() {
