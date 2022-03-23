@@ -13,8 +13,6 @@ export class FormComponent implements OnInit {
     jobTimeLength: 0,
     jobDifficulty: ''
   })
-  temp: any;
-  dataArray = [{jobName: 'asdfasdfasdf', jobTimeLength: 3, jobDifficulty: 'Medium'}];
 
   constructor(private dataService: DataService) { }
   
@@ -24,15 +22,11 @@ export class FormComponent implements OnInit {
   async onSubmitForm() {
     this.dataService.setData(this.formInfo);
 
-    await localforage.getItem('data', (err, value) => {
-      // console.log(value)
-      this.temp = value
+    this.formInfo = ({
+      jobName: '',
+      jobTimeLength: 0,
+      jobDifficulty: ''
     })
-
-    this.temp.push(this.formInfo)
-    localforage.setItem('data', this.temp);
-
-    this.temp = null;
   }
 
 }

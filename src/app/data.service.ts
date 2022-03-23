@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as localforage from 'localforage';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  data: any[] = [
-    {jobName: 'asdfasdfasdf', jobTimeLength: 3, jobDifficulty: 'Medium'}
-  ];
+  dataChanged = new Subject<any[]>();
+  data: any[] = [];
   temp: any;
   constructor() { }
 
@@ -16,6 +16,7 @@ export class DataService {
     await localforage.getItem('data', (err, value) => {
       this.temp = value
     })
+      this.data = this.temp
     return this.temp
   }
 
@@ -23,6 +24,7 @@ export class DataService {
     this.data.push(newJob)
     console.log(this.data)
     localforage.setItem('data', this.data)
+    this.dataChanged.next(this.data.slice())
   }
   
   clearData() {

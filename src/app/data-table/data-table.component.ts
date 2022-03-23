@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as localforage from 'localforage';
+import { Subscription } from 'rxjs';
 import { DataService } from '../data.service';
 
 @Component({
@@ -10,11 +11,15 @@ import { DataService } from '../data.service';
 export class DataTableComponent implements OnInit, AfterViewInit {
   dataArray: any = [];
   tableShown = false;
+  subscription!: Subscription;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    // this.dataService.
+    this.subscription = this.dataService.dataChanged
+      .subscribe((dataArray) => {
+        this.dataArray = dataArray
+      })
   }
 
   async ngAfterViewInit() {
@@ -22,8 +27,13 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     console.log(this.dataArray)
   }
 
-  onShowTable() {
+  async onShowTable() {
     this.tableShown = !this.tableShown;
+    let test
+    await localforage.getItem('data', (err, value) => {
+      test = value
+    })
+    console.log(test)
   }
 
   onClearStorageData() {
