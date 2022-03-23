@@ -16,8 +16,12 @@ export class DataService {
     await localforage.getItem('data', (err, value) => {
       this.temp = value
     })
-      this.data = this.temp
-    return this.temp
+    this.data = this.temp
+    if(this.temp === null) {
+      return []
+    } else {
+      return this.temp
+    }
   }
 
   setData(newJob: any){

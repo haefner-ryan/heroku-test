@@ -16,7 +16,6 @@ export class DataTableComponent implements OnInit, AfterViewInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    
     this.subscription = this.dataService.dataChanged
       .subscribe((dataArray) => {
         this.dataArray = dataArray
