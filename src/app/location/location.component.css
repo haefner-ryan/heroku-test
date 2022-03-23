@@ -11,3 +11,10 @@ button {
 .changed-location {
     background-color: lightgreen;
 }
+
+.location {
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}

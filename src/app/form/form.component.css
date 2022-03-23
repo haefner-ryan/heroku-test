@@ -1,0 +1,14 @@
+form {
+    margin: 20px;
+}
+
+input, select {
+    padding: 10px;
+    min-width: 10vw;
+    max-width: 10vw;
+}
+
+.form-group {
+    margin: 20px;
+    display: inline-block;
+}

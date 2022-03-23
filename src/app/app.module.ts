@@ -7,12 +7,18 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { CameraHardwareComponent } from './camera-hardware/camera-hardware.component';
+import { FormComponent } from './form/form.component';
+import { MapComponent } from './map/map.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocationComponent,
-    CameraHardwareComponent
+    CameraHardwareComponent,
+    FormComponent,
+    MapComponent,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,

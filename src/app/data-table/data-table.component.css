@@ -1,0 +1,22 @@
+td, th {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+tr {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+table {
+    margin: 20px;
+    width: 50vw;
+}
+
+.btn-danger {
+    background-color: red;
+}
+
+.hide-show-btn {
+    width: 200px;
+}

@@ -1,0 +1,23 @@
+<div>
+    <!-- <form> -->
+        <div class="form-group">
+            <label for="">Job Name:</label>
+            <input type="text" [(ngModel)]="formInfo.jobName">
+        </div>
+        <div class="form-group">
+            <label for="">Estimated time to Complete (hours):</label>
+            <input type="number" [(ngModel)]="formInfo.jobTimeLength">
+        </div>
+        <div class="form-group">
+            <label for="">Difficulty:</label>
+            <select name="" id="" [(ngModel)]="formInfo.jobDifficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Difficult">Difficult</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="button" (click)="onSubmitForm()">SUBMIT</button>
+        </div>
+    <!-- </form> -->
+</div>

@@ -1,0 +1,22 @@
+<button (click)="onShowTable()" class="hide-show-btn">
+    {{ tableShown ? 'HIDE DATA TABLE' : 'SHOW DATA TABLE' }}
+</button>
+
+<div *ngIf="tableShown">
+    <table>
+        <thead>
+            <th>Job Name</th>
+            <th>Job Length (hours)</th>
+            <th>Job Difficulty</th>
+        </thead>
+        
+        <td colspan="3" *ngIf="dataArray.length === 0">TABLE IS EMPTY</td>
+        <tr *ngFor="let data of dataArray">
+            <td>{{ data.jobName }}</td>
+            <td>{{ data.jobTimeLength }}</td>
+            <td>{{ data.jobDifficulty }}</td>
+        </tr>
+    </table>
+        
+    <button class="btn-danger" (click)="onClearStorageData()">CLEAR TABLE</button>
+</div>
