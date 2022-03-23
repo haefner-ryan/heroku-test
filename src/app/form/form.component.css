@@ -12,3 +12,16 @@ input, select {
     margin: 20px;
     display: inline-block;
 }
+
+.form-div {
+    width: 80vw;
+    margin-bottom: 20px;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+label {
+    margin-right: 10px;
+    font-weight: 700;
+}

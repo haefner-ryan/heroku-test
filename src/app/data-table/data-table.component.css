@@ -11,6 +11,8 @@ tr {
 table {
     margin: 20px;
     width: 50vw;
+    border-spacing:0;
+    border-collapse: collapse;
 }
 
 .btn-danger {

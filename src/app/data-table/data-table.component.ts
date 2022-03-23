@@ -27,13 +27,8 @@ export class DataTableComponent implements OnInit, AfterViewInit {
     console.log(this.dataArray)
   }
 
-  async onShowTable() {
-    this.tableShown = !this.tableShown;
-    let test
-    await localforage.getItem('data', (err, value) => {
-      test = value
-    })
-    console.log(test)
+  onShowTable() {
+    this.tableShown = !this.tableShown;  
   }
 
   onClearStorageData() {
