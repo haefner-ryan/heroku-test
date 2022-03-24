@@ -3,13 +3,22 @@
     <p>{{ number }}</p>
     <hr> -->
     <div class="location">
-
-        <h3>Latitude: {{ lat }}</h3>
-        <h3>Longitude: {{ long }}</h3>
+        <div>
+            <h3 class="label">Latitude:</h3>
+            <input class="label" type="text" name="latitude" disabled>
+        </div>
+        <div>
+            <h3 class="label">Longitude:</h3>
+            <input class="label" type="text" name="longitude" disabled>
+        </div>
+        <div>
+            <h3 class="label">Camera:</h3>
+            <input class="label" type="text" name="longitude" disabled>
+        </div>
     </div>
-    <div class="location" id="updated-location">
+    <!-- <div class="location" id="updated-location">
         <h3>Updated Latitude: {{ updatedLat }}</h3>
         <h3>Updated Longitude: {{ updatedLong }}</h3>
-    </div>
+    </div> -->
     <!-- <button (click)="onChangeLocation()">CHANGE LOCATION</button> -->
 </div>
