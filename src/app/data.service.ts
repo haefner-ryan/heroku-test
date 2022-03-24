@@ -12,16 +12,20 @@ export class DataService {
   constructor() { }
 
   async getData() {
-      
-    await localforage.getItem('data', (err, value) => {
-      this.temp = value
+    let response: any;
+    response = await localforage.getItem('data', (err, value) => {
+      // Initializes 'data' in localforage for new users
+      if (value === null) {
+        localforage.setItem('data', [])
+        return [];
+      } else {
+        this.temp = value
+        this.data = this.temp
+        return this.temp
+      }
     })
-    this.data = this.temp
-    if(this.temp === null) {
-      return []
-    } else {
-      return this.temp
-    }
+
+    return response
   }
 
   setData(newJob: any){

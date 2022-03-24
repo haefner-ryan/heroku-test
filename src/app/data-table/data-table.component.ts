@@ -8,25 +8,21 @@ import { DataService } from '../data.service';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
-export class DataTableComponent implements OnInit, AfterViewInit {
+export class DataTableComponent implements OnInit {
   dataArray: any = [];
   tableShown = false;
   subscription!: Subscription;
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.dataArray = await this.dataService.getData();
+    console.log(this.dataArray)
+
     this.subscription = this.dataService.dataChanged
       .subscribe((dataArray) => {
         this.dataArray = dataArray
       })
-  }
-
-  async ngAfterViewInit() {
-    this.dataArray = await this.dataService.getData();
-    console.log(this.dataArray)
-    // Initializes 'data' in localforage for new users
-    if(this.dataArray === null) { localforage.setItem('data', []) } 
   }
 
   onShowTable() {
@@ -35,7 +31,6 @@ export class DataTableComponent implements OnInit, AfterViewInit {
 
   onClearStorageData() {
     this.dataService.clearData();
-    // localforage.setItem('data', [])
     this.dataArray = [];
   }
 
