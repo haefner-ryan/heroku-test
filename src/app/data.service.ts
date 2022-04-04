@@ -3,41 +3,36 @@ import * as localforage from 'localforage';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
   dataChanged = new Subject<any[]>();
   data: any[] = [];
   temp: any;
-  constructor() { }
+  constructor() {}
 
   async getData() {
     let response: any;
     response = await localforage.getItem('data', (err, value) => {
-      // Initializes 'data' in localforage for new users
-      if (value === null) {
-        localforage.setItem('data', [])
-        return [];
-      } else {
-        this.temp = value
-        this.data = this.temp
-        return this.temp
+      if (value) {
+        this.temp = value;
+        this.data = this.temp;
+        return this.temp;
       }
-    })
-
-    return response
+    });
+    return response;
   }
 
-  setData(newJob: any){
-    this.data.push(newJob)
-    console.log(this.data)
-    localforage.setItem('data', this.data)
-    this.dataChanged.next(this.data.slice())
+  setData(newJob: any) {
+    this.data.push(newJob);
+    console.log(this.data);
+    localforage.setItem('data', this.data);
+    this.dataChanged.next(this.data.slice());
   }
-  
+
   clearData() {
     localforage.setItem('data', []);
     this.data = [];
-    console.log(this.data)
+    console.log(this.data);
   }
 }
